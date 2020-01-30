@@ -1,1 +1,3 @@
 # Notes
+
+References for coding.
