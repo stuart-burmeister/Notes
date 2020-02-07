@@ -35,4 +35,22 @@
 * Name each style in the same order at the code, and with combinations of '__' (2 underlines) and words (lowercase)
 
 ## Common Loading Screen
-* 
+* Use an overlay for the component, instead of as a separate dialog.
+* Use the CCLoading component as default.
+* In order to use the loading screen, a promise is needed.
+
+## GraphQL
+* Use Graphql with the Apollo client.
+* Use the method examples given below for using the Apollo Client.
+* By default, react hook methods useQuery and useMutation are used.
+
+### useQuery
+
+## Console
+* Use custom console.log, info, warn, and error console messages.
+* You can change the settings to output or not based on type.
+
+## Commit Checklist
+* [ ] Are imports organised? (mac: alt + shift + o)
+* [ ] Have all warnings been resolved?
+* [ ] Have all 'console.log's been removed?
