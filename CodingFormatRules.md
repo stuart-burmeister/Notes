@@ -51,6 +51,6 @@
 * You can change the settings to output or not based on type.
 
 ## Commit Checklist
-* [ ] Are imports organised? (mac: alt + shift + o)
+* [ ] Are imports organised? (mac: option + shift + f)
 * [ ] Have all warnings been resolved?
 * [ ] Have all 'console.log's been removed?
