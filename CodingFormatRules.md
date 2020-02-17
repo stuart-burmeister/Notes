@@ -54,3 +54,6 @@
 * [ ] Are imports organised? (mac: option + shift + o)
 * [ ] Have all warnings been resolved?
 * [ ] Have all 'console.log's been removed?
+
+## Link
+* [Original rules](https://github.com/vtsw/vtstyle/blob/master/src/documents/codes.md)
