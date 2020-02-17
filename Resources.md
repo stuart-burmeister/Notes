@@ -3,7 +3,7 @@
 ## Apollo
 * Used for data management and storage.
 * [Client-side reference](https://www.apollographql.com/docs/react/)
-* [Full-stack tutorial] (https://www.apollographql.com/docs/tutorial/introduction/)
+* [Full-stack tutorial](https://www.apollographql.com/docs/tutorial/introduction/)
 
 ## Material UI
 * [Docs & API](https://material-ui.com/components/buttons/)
