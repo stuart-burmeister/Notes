@@ -45,6 +45,14 @@
 * By default, react hook methods useQuery and useMutation are used.
 
 ### useQuery
+* If data does not need to be proccessed, then simply getting data from the query call is enough.
+* If data needs to be processed, use an event hook to unload the data.
+* If data needs to be polled, use a 5s interval.
+
+### useMutation
+* When use by itself, simply use the useMutation call and call the function with variables.
+* When another mutation is called after another, place the second in the onCompleted callback function.
+* When a query has to be updated, use refetchQueries and ensure the original query call is the same (import) and the variables are the same.
 
 ## Console
 * Use custom console.log, info, warn, and error console messages.
