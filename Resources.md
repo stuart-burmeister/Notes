@@ -8,6 +8,10 @@
 ## Material UI
 * [Docs & API](https://material-ui.com/components/buttons/)
 * [Styling blog post](https://codeburst.io/my-journey-to-make-styling-with-material-ui-right-6a44f7c68113)
+* [Using themes/ overrides](https://blog.bitsrc.io/how-to-customize-material-ui-theme-v3-2-0-part-3-750db6981a33)
+  - Use the overrides of the theme when trying to theme complex components.
+  - Works in both jss syntax and css syntax.
+  - Refer to the api to find the components to style (ie. root, input, etc.)
 
 ## Local/Session Storage
 * Can store variables in the local/session storage.
