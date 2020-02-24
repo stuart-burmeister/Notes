@@ -16,3 +16,7 @@
 ## Local/Session Storage
 * Can store variables in the local/session storage.
 * [Explanation blog post](https://www.robinwieruch.de/local-storage-react)
+
+## CSS
+* Pixels can be fractions, which sometimes results in small lines where a fraction is rounded, making 2 containers have different pixel widths.
+  * changing from padding to margin fixes this...
