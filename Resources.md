@@ -18,5 +18,5 @@
 * [Explanation blog post](https://www.robinwieruch.de/local-storage-react)
 
 ## CSS
-* Pixels can be fractions, which sometimes results in small lines where a fraction is rounded, making 2 containers have different pixel widths.
-  * changing from padding to margin fixes this...
+* Pixels can be fractions, which sometimes results in small artifacts where containers use different pixel values.
+  * reqiures further investigation...
