@@ -12,6 +12,7 @@
   - Use the overrides of the theme when trying to theme complex components.
   - Works in both jss syntax and css syntax.
   - Refer to the api to find the components to style (ie. root, input, etc.)
+* [Use with storybook](https://medium.com/encode/setting-up-storybook-with-material-ui-and-styled-components-5bdacb6db866)
 
 ## Local/Session Storage
 * Can store variables in the local/session storage.
