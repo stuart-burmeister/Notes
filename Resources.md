@@ -18,6 +18,9 @@
 * Can store variables in the local/session storage.
 * [Explanation blog post](https://www.robinwieruch.de/local-storage-react)
 
-## CSS
+## CSS/JSS
 * Pixels can be fractions, which sometimes results in small artifacts where containers use different pixel values.
   * reqiures further investigation...
+* For scrolling, on div elements the scroll bar will squish the elements, while for table elements it won't. However, table elements are harder to deal with.
+  * solution: detect the scrollbar and then add the padding.
+  * [Explanation of how to detect](https://medium.com/@jbbpatel94/difference-between-offsetheight-clientheight-and-scrollheight-cfea5c196937)
