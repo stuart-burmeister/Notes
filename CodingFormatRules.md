@@ -10,14 +10,69 @@
 ## Props & Creating components
 * All components start with props
 * Decompose the props into local variables for use (ie no props.variable)
+   ```javascript
+    const WarnDialog = props => {
+      const { open, onClose, onAgree, onDissagree } = props;
+      ...
+    }
+   ```
 * Do not specify props if none are used.
+  ```javascript
+  const Desk = () => {
+    ...
+  }
+  ```
 
 ## Exporting
 * Export at the end of the file, not at the function definition.
+  ```javascript
+  import React from "react";
+
+  const Desk = () =>{
+    ...
+  }
+
+  export default MsgList;
+  export { LIST_MSG };
+  ```
 
 ## Dialog
 * Implement separate from the components
-* Use callbacks rather than handlers for passing functionality.
+* Use callbacks rather than handlers for passing functionality down.
+  ```javascript
+  // Callbacks ( O )
+  <WarnDialog
+    open={warn.status}
+    onClose={() => {
+      setWarn({ status: false });
+    }}
+    onAgree={() => {
+      removeMessage({ variables: { id: warn.value.id } });
+      setWarn({ status: false });
+    }}
+    onDissagree={() => {
+      setWarn({ status: false });
+    }}
+  />
+  ```
+  ```javascript
+  // Passing Handler ( X )
+  const Test = () => {
+    const [open, setOpen] = setState("init")
+
+    <WarnDialog
+      open={value}
+      setOpen={setOpen}
+    />
+  }
+
+  const WarnDialog = (props) => {
+    const {open, setOpen } = props
+    ...
+    <Button onClick={()=>{setOpen(false)}}>닫기</Button>
+    ...
+  }
+  ```
 * Use the basic structure of Title, Content, then Action.
 
 ## Layout/Screen Drawing
