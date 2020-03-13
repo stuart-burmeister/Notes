@@ -10,5 +10,8 @@
 * Using flex - https://developer.mozilla.org/en-US/docs/Web/CSS/align-content
 * Padding vs margin: https://medium.com/frontendshortcut/margin-vs-padding-c1fc8ea8bfaf
   * Be aware that padding can shift a component, forcing the container to be bigger. Keep in mind when formatting grids and spacings.
+* React hooks optimisation - https://reactjs.org/docs/hooks-faq.html#performance-optimizations
+  * when useState is not carefully managed, can cause too many redundant rerenders.
+  * Using useCallback and useMemo can ensure children only update when appropriate.
 
 ## Notes
