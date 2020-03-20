@@ -24,3 +24,7 @@
 * For scrolling, on div elements the scroll bar will squish the elements, while for table elements it won't. However, table elements are harder to deal with.
   * solution: detect the scrollbar and then add the padding.
   * [Explanation of how to detect](https://medium.com/@jbbpatel94/difference-between-offsetheight-clientheight-and-scrollheight-cfea5c196937)
+* Trying to get elements to fit designated widths/heights can be time-consuming and frustrating.
+  * Can be solved through [Box sizing!!!](https://www.w3schools.com/css/css3_box-sizing.asp)
+  * This will incorporate the entire box model (border, padding, margin, content) into the sizing.
+  * For more references on the box model, check out [here!](https://www.w3schools.com/css/css_boxmodel.asp)
