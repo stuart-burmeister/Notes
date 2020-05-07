@@ -28,3 +28,8 @@
   * Can be solved through [Box sizing!!!](https://www.w3schools.com/css/css3_box-sizing.asp)
   * This will incorporate the entire box model (border, padding, margin, content) into the sizing.
   * For more references on the box model, check out [here!](https://www.w3schools.com/css/css_boxmodel.asp)
+  
+ ## Javascript/ES6
+ * var -> scoped either globally or locally, depending on the placement outside or inside the function/class. Can be redeclared.
+ * let -> scoped only within the block it resides, cannot be redeclared.
+ * const -> constant variable, cannot change value directly and cannot be redeclared.
