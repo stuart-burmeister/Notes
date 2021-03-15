@@ -262,7 +262,9 @@ const MsgList = () => {
 ## GraphQL
 * Use Graphql with the Apollo client.
 * Use the method examples given below for using the Apollo Client.
-* By default, react hook methods useQuery and useMutation are used.
+* By default, react hook methods useQuery, useMutation, and useApolloCLient are used.
+* If continuous synchronisation with the Database is required, then useApolloClient should be used (Pattern C). Ensure that the try-catch is handled clearly.
+* When processing multiple requests, categorise the functions in custom hook patterns as much as possible.
 
 ### useQuery
 * If data does not need to be proccessed, then simply getting data from the query call is enough.
@@ -295,6 +297,10 @@ const UserList = () => {
 };
 ```
 * If data needs to be processed, use an event hook to unload the data.
+* For use Query, there are two patterns: if refetch needs to be used (Pattern A) and if refetch is not required (Pattern B)
+* Pattern A uses 'useEffect' for data processing, while Pattern B uses 'onCompleted' for data processing.
+
+Pattern A
 ```javascript
 const MsgList = () => {
   ...
@@ -308,6 +314,33 @@ const MsgList = () => {
       setContents(data.messages);
     }
   }, [data]);
+
+  return (
+    <Box>
+      ...
+      {!loading &&
+        contents.map((msg, index) => {
+          ...
+        })}
+      ...
+    </Box>
+  );
+};
+```
+
+Pattern B
+```javascript
+const MsgList = () => {
+  ...
+  const [contents, setContents] = useState([]);
+  const { loading, data } = useQuery(LIST_MSG, {
+    fetchPolicy: "network-only",
+      onCompleted: data => {
+        if (data && data.messages) {
+          setContents(data.messages);
+        }
+      },
+  });
 
   return (
     <Box>
@@ -362,6 +395,7 @@ createMsg({
 });
 ```
 * When another mutation is called after another, place the second in the onCompleted callback function.
+Pattern B
 ```javascript
 // When calling multiple mutations, place the function call of the second mutation in the onCompleted of the first mutation to be called, as shown below.
 /* Declaration */
@@ -394,6 +428,63 @@ signUpNcreateMsg({
     password: passwordRef.current.value
   }
 });
+```
+Pattern C
+```javascript
+// Implement as a synchonous process using asynch await
+// Separate the code from the main component using a custom hook
+// Prevent any global failures using a try-catch statement
+/* Declaration */
+const useSignUpNCreateMsg = props => {
+    const client = useApolloClient();
+  const callFunc = useCallback(async varibales => {
+        let userText = null;
+        try{
+            await client.mutate({
+                mutation: SIGNUP,
+                variables: {
+                    email: varibales.email,
+                    username: varibales.username,
+                    password: varibales.password      							}
+            });
+        }catch(error){
+            console.error(error)
+        }
+        try{
+            userText = await client.query({
+                query: GET_USER_TEXT,
+                variables: {
+                    user: varibales.email
+            }
+            });
+        }catch(error){
+            console.error(error)
+        }
+        try{
+            if( Boolean(userText.date.getUserText.text) ){
+
+            }
+            await client.mutate({
+                mutation: CREATE_MSG,
+                variables: {
+                    user: varibales.email,
+                    text: userText.date.getUserText.tex
+            }
+            });
+        }catch(error){
+            console.error(error)
+        }
+    }, [deps...])
+    return callFunc;
+}
+```
+```javascript
+/* Usage */
+signUpNcreateMsg({
+    email: emailRef.current.value,
+    username: nameRef.current.value,
+    password: passwordRef.current.value
+ });
 ```
 * When a query has to be updated, use refetchQueries and ensure the original query call is the same (import) and the variables are the same.
 ```javascript
